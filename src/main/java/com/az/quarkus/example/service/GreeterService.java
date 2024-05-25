@@ -1,4 +1,4 @@
-package com.az.quarkus.example.resource.service;
+package com.az.quarkus.example.service;
 
 public interface GreeterService {
     void greet();

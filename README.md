@@ -73,3 +73,9 @@ Easily start your REST Web Services
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+### Examples:
+#### Example-1
+* It's for Rest API and restClient
+#### Example-2
+* It's for Rest API with JPA
