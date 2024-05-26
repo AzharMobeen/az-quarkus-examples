@@ -1,6 +1,6 @@
 package com.az.quarkus.example.resource;
 
-import com.az.quarkus.example.model.Fruit;
+import com.az.quarkus.example.entity.Fruit;
 import com.az.quarkus.example.service.FruitService;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
