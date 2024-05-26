@@ -5,12 +5,13 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 ### Examples:
+* checkout branches as per example order
 #### Example-1
 * It's for Rest API and restClient
 #### Example-2
 * It's for Rest API with JPA and H2 in memory DB
 #### Example-3
-* Security added (JWT token generation and validation)
+* Security added (JWT token generation and validation with symmetric approach)
 
 ### Running the application in dev mode
 
