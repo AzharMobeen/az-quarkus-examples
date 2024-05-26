@@ -1,7 +1,7 @@
-package com.az.quarkus.example.service.impl;
+package com.az.quarkus.example.resource.service.impl;
 
-import com.az.quarkus.example.client.DummyClient;
-import com.az.quarkus.example.service.GreeterService;
+import com.az.quarkus.example.resource.client.DummyClient;
+import com.az.quarkus.example.resource.service.GreeterService;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.rest.client.inject.RestClient;

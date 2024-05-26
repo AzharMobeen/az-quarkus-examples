@@ -19,11 +19,6 @@ dependencies {
     implementation("io.quarkus:quarkus-rest-client")
     implementation("io.quarkus:quarkus-rest-client-jackson")
 
-    /*For DB example*/
-    implementation("io.quarkus:quarkus-spring-data-jpa")
-    implementation("io.quarkus:quarkus-jdbc-h2")
-
-
     /*For lombok*/
     compileOnly 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'

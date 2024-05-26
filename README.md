@@ -7,8 +7,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 ### Examples:
 #### Example-1
 * It's for Rest API and restClient
-#### Example-2
-* It's for Rest API with JPA and H2 in memory DB
+
 
 ### Running the application in dev mode
 
