@@ -20,8 +20,38 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 ### Examples:
 * `main` branch has all the examples
 * `checkout` branches as-per-examples order, it will help to understand `Quarkus` from beginner to advance
+* For Postman collection please  import openAPI specification `openapi.yml`
 #### Example-1
 * It's for Rest API and restClient
+* Add below dependencies for `Rest` endpoints and `RestClient`
+```
+/*For Rest Endpoint example*/
+implementation("io.quarkus:quarkus-rest")
+implementation("io.quarkus:quarkus-rest-jackson")
+
+/*For Rest Client we need below */
+implementation("io.quarkus:quarkus-rest-client")
+implementation("io.quarkus:quarkus-rest-client-jackson")
+```
+* For code please have a look on `ExampleResource`
+* First API CURL
+```
+curl --location 'http://localhost:8080/hello' \
+--header 'Accept: text/plain'
+```
+* Response
+```
+Hello from Quarkus REST
+```
+* Second API CURL (RestClient)
+```
+curl --location 'http://localhost:8080/hello/testClient' \
+--header 'Accept: text/plain'
+```
+* Response
+```
+Hey ya! Great to see you here. Btw, nothing is configured for this request path. Create a rule and start building a mock API.
+```
 #### Example-2
 * It's for Rest API with JPA and H2 in memory DB
 #### Example-3

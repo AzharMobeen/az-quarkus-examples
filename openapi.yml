@@ -1,0 +1,212 @@
+---
+openapi: 3.0.3
+info:
+  title: az-quarkus-rest-example API
+  version: 1.0-SNAPSHOT
+paths:
+  /api/job/search:
+    get:
+      tags:
+      - Job Resource
+      parameters:
+      - name: page
+        in: query
+        schema:
+          format: int32
+          type: integer
+      - name: size
+        in: query
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+  /api/secure:
+    get:
+      tags:
+      - Jwt Resource
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme: []
+  /api/secure2:
+    get:
+      tags:
+      - Jwt Resource
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Not Authorized
+        "403":
+          description: Not Allowed
+      security:
+      - SecurityScheme: []
+  /api/token:
+    post:
+      tags:
+      - Jwt Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TokenRequest"
+      responses:
+        "200":
+          description: OK
+  /fruits:
+    get:
+      tags:
+      - Fruit Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Fruit"
+  /fruits/color/{color}:
+    get:
+      tags:
+      - Fruit Resource
+      parameters:
+      - name: color
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Fruit"
+  /fruits/id/{id}/color/{color}:
+    put:
+      tags:
+      - Fruit Resource
+      parameters:
+      - name: color
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Fruit"
+  /fruits/name/{name}/color/{color}:
+    post:
+      tags:
+      - Fruit Resource
+      parameters:
+      - name: color
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Fruit"
+  /fruits/{id}:
+    delete:
+      tags:
+      - Fruit Resource
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204":
+          description: No Content
+  /greet:
+    get:
+      tags:
+      - Dummy Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /hello:
+    get:
+      tags:
+      - Example Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /hello/testClient:
+    get:
+      tags:
+      - Example Resource
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    Fruit:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        color:
+          type: string
+    TokenRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
