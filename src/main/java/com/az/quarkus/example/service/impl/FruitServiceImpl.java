@@ -1,6 +1,6 @@
 package com.az.quarkus.example.service.impl;
 
-import com.az.quarkus.example.model.Fruit;
+import com.az.quarkus.example.entity.Fruit;
 import com.az.quarkus.example.repository.FruitRepository;
 import com.az.quarkus.example.service.FruitService;
 import jakarta.enterprise.context.ApplicationScoped;

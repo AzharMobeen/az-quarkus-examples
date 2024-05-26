@@ -1,4 +1,4 @@
-package com.az.quarkus.example.model;
+package com.az.quarkus.example.entity;
 
 
 import jakarta.persistence.Entity;

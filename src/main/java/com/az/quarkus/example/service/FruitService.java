@@ -1,6 +1,6 @@
 package com.az.quarkus.example.service;
 
-import com.az.quarkus.example.model.Fruit;
+import com.az.quarkus.example.entity.Fruit;
 
 import java.util.List;
 import java.util.Optional;

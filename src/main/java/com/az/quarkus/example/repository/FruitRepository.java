@@ -1,6 +1,6 @@
 package com.az.quarkus.example.repository;
 
-import com.az.quarkus.example.model.Fruit;
+import com.az.quarkus.example.entity.Fruit;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
