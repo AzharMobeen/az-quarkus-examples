@@ -1,9 +1,22 @@
-# az-quarkus-examples
+### az-quarkus-examples
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
+If you want to learn more about Quarkus, please visit its website: https://quarkus.io/.
+<!-- TOC -->
+  * [Examples:](#examples)
+    * [Example-1](#example-1)
+    * [Example-2](#example-2)
+    * [Example-3](#example-3)
+    * [Examole-4](#examole-4)
+  * [Running the application in dev mode](#running-the-application-in-dev-mode)
+  * [Packaging and running the application](#packaging-and-running-the-application)
+  * [Creating a native executable](#creating-a-native-executable)
+  * [Related Guides](#related-guides)
+  * [Provided Code](#provided-code)
+  * [REST](#rest)
+  * [RESTEasy JAX-RS](#resteasy-jax-rs)
+<!-- TOC -->
 ### Examples:
 * `main` branch has all the examples
 * `checkout` branches as-per-examples order, it will help to understand `Quarkus` from beginner to advance
@@ -13,6 +26,8 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 * It's for Rest API with JPA and H2 in memory DB
 #### Example-3
 * Security added (JWT token generation and validation with symmetric approach)
+#### Examole-4
+* In this example, we will have Faceted Search technique with JPA
 
 ### Running the application in dev mode
 
