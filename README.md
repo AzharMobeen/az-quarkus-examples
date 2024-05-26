@@ -29,6 +29,20 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 #### Examole-4
 * In this example, we will have Faceted Search technique with JPA
 
+### API Documentation:
+* Add below dependency
+```
+implementation 'io.quarkus:quarkus-smallrye-openapi'
+```
+* Add below properties
+```
+quarkus.smallrye-openapi.path=/openapi
+quarkus.swagger-ui.always-include=true
+quarkus.swagger-ui.path=/swagger-ui
+```
+* Open API : http://localhost:8080/openapi
+* Swagger UI: http://localhost:8080/swagger-ui
+
 ### Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
