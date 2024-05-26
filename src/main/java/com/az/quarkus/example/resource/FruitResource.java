@@ -1,18 +1,15 @@
 package com.az.quarkus.example.resource;
 
 import com.az.quarkus.example.model.Fruit;
-import com.az.quarkus.example.repository.FruitRepository;
 import com.az.quarkus.example.service.FruitService;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.Optional;
 
 @Path("/fruits")
 @RequiredArgsConstructor
