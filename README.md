@@ -9,6 +9,8 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 * It's for Rest API and restClient
 #### Example-2
 * It's for Rest API with JPA and H2 in memory DB
+#### Example-3
+* Security added (JWT token generation and validation)
 
 ### Running the application in dev mode
 
