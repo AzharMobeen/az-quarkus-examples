@@ -5,7 +5,8 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
 ### Examples:
-* checkout branches as per example order
+* `main` branch has all the examples
+* `checkout` branches as-per-examples order, it will help to understand `Quarkus` from beginner to advance
 #### Example-1
 * It's for Rest API and restClient
 #### Example-2
