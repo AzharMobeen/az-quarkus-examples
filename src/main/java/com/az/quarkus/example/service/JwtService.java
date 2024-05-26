@@ -1,18 +1,20 @@
 package com.az.quarkus.example.service;
 
 import com.az.quarkus.example.config.JwtConfig;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.security.Keys;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import io.jsonwebtoken.Jwts;
 import jakarta.inject.Inject;
+import lombok.extern.slf4j.Slf4j;
 
 
-import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @ApplicationScoped
 public class JwtService {
 
@@ -26,8 +28,7 @@ public class JwtService {
     private static final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
 
     public String generateToken(String username, List<String> roles) {
-        byte[] decodedKey = Base64.getDecoder().decode(jwtConfig.secretKey());
-        Key key = new SecretKeySpec(decodedKey, "HmacSHA256"); // Use a secure hashing algorithm
+        Key key = Keys.hmacShaKeyFor(jwtConfig.secretKey().getBytes());
         return Jwts.builder()
                 .subject(username)
                 .claim("roles", roles)
@@ -35,5 +36,14 @@ public class JwtService {
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key)
                 .compact();
+    }
+
+    public Claims validateToken(String token) {
+        log.info("validate token method started!");
+        return Jwts.parser()
+                .verifyWith(Keys.hmacShaKeyFor(jwtConfig.secretKey().getBytes()))
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }
