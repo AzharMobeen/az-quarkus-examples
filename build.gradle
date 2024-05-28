@@ -1,6 +1,9 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    /*For lombok no need dependency only plugin is enough*/
+    id 'io.freefair.lombok' version "${lombok_plugin_version}"
+    id 'org.sonarqube' version "${sonarqube_plugin_version}"
 }
 
 repositories {
@@ -11,24 +14,21 @@ repositories {
 dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     /*For Rest Endpoint example*/
-
-    implementation("io.quarkus:quarkus-rest")
     implementation("io.quarkus:quarkus-rest-jackson")
-
     /*For Rest Client we need below */
-    implementation("io.quarkus:quarkus-rest-client")
     implementation("io.quarkus:quarkus-rest-client-jackson")
 
     /*For DB example*/
-    implementation("io.quarkus:quarkus-spring-data-jpa")
     implementation("io.quarkus:quarkus-jdbc-h2")
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+
+    /*For Documentation OpenAPI is best*/
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
 
     /*For Security example*/
     implementation 'io.jsonwebtoken:jjwt:0.12.3'
 
-    /*For lombok*/
-    compileOnly 'org.projectlombok:lombok:1.18.32'
-    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+    /*Default dependencies*/
     implementation 'io.quarkus:quarkus-arc'
     implementation 'io.quarkus:quarkus-rest'
     testImplementation 'io.quarkus:quarkus-junit5'
