@@ -20,7 +20,7 @@ public class FruitServiceImpl implements FruitService {
     @Override
     public Iterable<Fruit> findAll() {
         log.info("Find all method called!");
-        return fruitRepository.findAll();
+        return fruitRepository.findAll().stream().toList();
     }
 
     @Override
@@ -32,24 +32,25 @@ public class FruitServiceImpl implements FruitService {
     @Override
     public Fruit save(Fruit fruit) {
         log.info("save method called!");
-        return fruitRepository.save(fruit);
-
+         fruitRepository.persist(fruit);
+         return fruit;
     }
 
     @Override
     public Optional<Fruit> findById(Long id) {
         log.info("findById method called!");
-        return fruitRepository.findById(id);
+        return Optional.ofNullable(fruitRepository.findById(id));
     }
 
     @Override
     public Fruit update(Long id, String color) {
         log.info("update method called!");
-        Optional<Fruit> optional = fruitRepository.findById(id);
+        Optional<Fruit> optional = Optional.ofNullable(fruitRepository.findById(id));
         if (optional.isPresent()) {
             Fruit fruit = optional.get();
             fruit.setColor(color);
-            return fruitRepository.save(fruit);
+            fruitRepository.persist(fruit);
+            return fruit;
         }
         throw new IllegalArgumentException("No Fruit with id " + id + " exists");
     }
