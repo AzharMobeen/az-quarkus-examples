@@ -1,11 +1,18 @@
 package com.az.quarkus.example.repository;
 
 import com.az.quarkus.example.model.Fruit;
-import org.springframework.data.repository.CrudRepository;
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import jakarta.enterprise.context.ApplicationScoped;
+import lombok.extern.slf4j.Slf4j;
+
 
 import java.util.List;
 
-public interface FruitRepository extends CrudRepository<Fruit, Long> {
+@ApplicationScoped
+@Slf4j
+public class FruitRepository implements PanacheRepository<Fruit> {
 
-    List<Fruit> findByColor(String color);
+    public List<Fruit> findByColor(String color) {
+        return find("color", color).list();
+    }
 }

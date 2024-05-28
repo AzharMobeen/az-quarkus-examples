@@ -1,20 +1,18 @@
 package com.az.quarkus.example.model;
 
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @NoArgsConstructor
 @Data
-public class Fruit {
+public class Fruit extends PanacheEntity {
 
-    @Id
-    @GeneratedValue
-    private Long id;
     private String name;
     private String color;
 
